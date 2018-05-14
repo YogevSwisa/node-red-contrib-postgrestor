@@ -90,6 +90,7 @@ module.exports = function(RED) {
         } finally {
           node.send(msg);
           client && client.release();
+          await pool.end()
         }
       };
       asyncQuery();
